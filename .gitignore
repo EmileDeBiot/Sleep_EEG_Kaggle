@@ -2,3 +2,5 @@
 /test
 sample.csv
 submission.csv
+data/
+__pycache__
