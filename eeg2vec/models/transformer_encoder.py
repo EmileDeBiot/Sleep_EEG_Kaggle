@@ -7,6 +7,6 @@ class TransformerEncoder(nn.Module):
         self.transformer_encoder = nn.TransformerEncoder(encoder_layers, num_encoder_layers)
 
         
-    def forward(self, src, mask=None):
-        output = self.transformer_encoder(src, mask)
+    def forward(self, src):
+        output = self.transformer_encoder(src)
         return output
