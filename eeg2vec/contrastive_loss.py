@@ -8,6 +8,8 @@ class ContrastiveLoss(nn.Module):
         self.margin = margin
 
     def forward(self, output1, output2):
+        # Euclidean distance between masked and unmasked embeddings
         euclidean_distance = F.pairwise_distance(output1, output2)
-        loss_contrastive = torch.mean((1 - euclidean_distance) ** 2)
-        return loss_contrastive
+        # Minimize the distance to align embeddings
+        loss = torch.mean(euclidean_distance ** 2)
+        return loss
