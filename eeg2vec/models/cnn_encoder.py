@@ -1,13 +1,13 @@
 from torch import nn
 
 class CNNEncoder(nn.Module):
-    def __init__(self, conv_size, out_size, kernel_size):
+    def __init__(self, conv_size, out_size, kernel_size_1, kernel_size_2):
         super(CNNEncoder, self).__init__()
         self.conv_layers = nn.Sequential(
-            nn.Conv1d(in_channels=5, out_channels=conv_size, kernel_size=kernel_size, stride=1),
+            nn.Conv1d(in_channels=5, out_channels=conv_size, kernel_size=kernel_size_1, stride=1),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=kernel_size),
-            nn.Conv1d(in_channels=conv_size, out_channels=out_size, kernel_size=kernel_size, stride=1),
+            nn.MaxPool1d(kernel_size=kernel_size_1),
+            nn.Conv1d(in_channels=conv_size, out_channels=out_size, kernel_size=kernel_size_2, stride=1),
             nn.ReLU()
         )
     def forward(self, x):

@@ -14,9 +14,9 @@ from torch import nn
 # different recordings.
 
 class EEG2Vec(nn.Module):
-    def __init__(self, d_model, nhead, num_encoder_layers, dim_feedforward, conv_size, out_size, kernel_size,  dropout=0.1):
+    def __init__(self, d_model, nhead, num_encoder_layers, dim_feedforward, conv_size, out_size, kernel_size_1, kernel_size_2,  dropout=0.1):
         super(EEG2Vec, self).__init__()
-        self.cnn_encoder = CNNEncoder(conv_size, out_size, kernel_size)
+        self.cnn_encoder = CNNEncoder(conv_size, out_size, kernel_size_1, kernel_size_2)
         self.transformer_encoder = TransformerEncoder(d_model, nhead, num_encoder_layers, dim_feedforward, dropout)
 
     def forward(self, x):

@@ -11,4 +11,3 @@ class ContrastiveLoss(nn.Module):
         euclidean_distance = F.pairwise_distance(output1, output2)
         loss_contrastive = torch.mean((1 - euclidean_distance) ** 2)
         return loss_contrastive
-    
