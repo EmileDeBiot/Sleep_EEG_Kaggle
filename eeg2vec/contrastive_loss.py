@@ -13,3 +13,4 @@ class ContrastiveLoss(nn.Module):
         # Minimize the distance to align embeddings
         loss = torch.mean(euclidean_distance ** 2)
         return loss
+        
